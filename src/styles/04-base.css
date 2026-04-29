@@ -1,0 +1,575 @@
+/* ============================================================
+   Slides 16–20 styles
+   ============================================================ */
+
+/* Shared head pattern */
+.s17__head, .s18__head, .s19__head, .s20__head {
+  padding: clamp(36px, 4.5vw, 56px) clamp(28px, 4vw, 72px) 22px;
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: end; gap: 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.s17__h-num, .s18__h-num, .s19__h-num, .s20__h-num {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.s17__h-title, .s18__h-title, .s19__h-title, .s20__h-title {
+  font-size: 38px; font-weight: 600; letter-spacing: -0.02em; margin: 0; line-height: 1.1;
+}
+.s17__h-title .thin, .s18__h-title .thin, .s19__h-title .thin, .s20__h-title .thin {
+  color: var(--ink-3); font-weight: 300;
+}
+.s17__h-meta, .s18__h-meta, .s19__h-meta, .s20__h-meta {
+  font-family: var(--font-mono); font-size: 10.5px;
+  color: var(--ink-3); letter-spacing: 0.1em;
+  text-align: right; text-transform: uppercase; line-height: 1.4;
+}
+
+/* ============== SLIDE 16 — Section divider ============== */
+.s16 {
+  position: relative;
+  width: 100%; height: 100%;
+  background: var(--paper);
+  display: grid; grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  min-height: 0;
+}
+.s16__bg {
+  position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 60%;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.s16__grid {
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: repeat(12, 1fr);
+  pointer-events: none;
+}
+.s16__grid-col {
+  border-right: 1px solid color-mix(in oklab, var(--rule), transparent 50%);
+}
+.s16__grid-col:last-child { border-right: none; }
+.s16__top {
+  position: relative; z-index: 2;
+  padding: clamp(36px, 4vw, 56px) clamp(28px, 4vw, 72px) 0;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.s16__chapter {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+}
+.s16__progress {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.16em; color: var(--ink-3);
+}
+.s16__progress-current { color: var(--accent); font-weight: 600; }
+.s16__main {
+  position: relative; z-index: 2;
+  padding: 0 clamp(28px, 4vw, 72px);  display: grid; grid-template-columns: clamp(160px, 18vw, 240px) 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.s16__index {
+  font-size: clamp(120px, 18vw, 220px);
+  font-weight: 200;
+  line-height: 0.85;
+  color: var(--accent-soft);
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+  -webkit-text-stroke: 1px color-mix(in oklab, var(--accent), transparent 50%);
+}
+.s16__eyebrow {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+  margin-bottom: 12px;
+}
+.s16__title {
+  font-size: clamp(56px, 7vw, 88px); font-weight: 600;
+  letter-spacing: -0.03em; line-height: 0.95;
+  color: var(--ink); margin: 0;
+}
+.s16__title-thin { color: var(--accent); font-weight: 300; }
+.s16__rule {
+  width: 80px; height: 2px; background: var(--accent); margin: 24px 0;
+}
+.s16__lede {
+  font-size: 16px; line-height: 1.55; color: var(--ink-2);
+  max-width: 56ch; margin: 0;
+}
+.s16__foot {
+  position: relative; z-index: 2;
+  padding: 24px clamp(28px, 4vw, 72px);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  border-top: 1px solid var(--rule);
+  background: color-mix(in oklab, var(--paper), var(--paper-2) 50%);
+}
+.s16__foot-stat { display: flex; flex-direction: column; gap: 4px; }
+.s16__foot-num {
+  font-size: 22px; font-weight: 600; color: var(--accent);
+  letter-spacing: -0.015em; font-variant-numeric: tabular-nums;
+}
+.s16__foot-lab {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3);
+}
+
+/* ============== SLIDE 17 — Balance Sheet ============== */
+.s17 { width: 100%; height: 100%; display: grid; grid-template-rows: auto 1fr auto; }
+.s17__body {
+  display: grid;
+  grid-template-columns: clamp(220px, 20vw, 280px) minmax(0, 1fr);
+  height: 100%; overflow: hidden;
+}
+.s17__totals-rail {
+  border-right: 1px solid var(--rule);
+  padding: 28px 28px;
+  display: flex; flex-direction: column; gap: 8px;
+  background: var(--paper-2);
+}
+.s17__totals-eye {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+}
+.s17__totals-num {
+  font-size: 48px; font-weight: 600; color: var(--accent);
+  letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.s17__totals-unit {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3);
+}
+.s17__totals-rule { height: 1px; background: var(--rule); margin: 16px 0; }
+.s17__totals-meta { display: flex; flex-direction: column; gap: 12px; }
+.s17__totals-meta div {
+  display: flex; flex-direction: column; gap: 2px;
+  font-size: 14px; color: var(--ink); font-weight: 600;
+}
+.s17__totals-meta span {
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3);
+  font-weight: 400;
+}
+
+.s17__charts {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  padding: 24px clamp(20px, 3vw, 48px);
+  align-items: stretch;
+  min-height: 0;
+}
+.s17__divider {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.s17__divider-line { flex: 1; width: 1px; background: var(--rule); }
+.s17__divider-eq {
+  font-family: var(--font-mono); font-size: 18px; color: var(--ink-3);
+  margin: 12px 0;
+}
+
+.s17__stack { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.s17__stack-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.s17__stack-eye {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+}
+.s17__stack-total {
+  font-size: 20px; font-weight: 700; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.s17__stack-bar {
+  display: flex; flex-direction: column;
+  height: 280px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.s17__seg {
+  display: flex; flex-direction: row; align-items: center; justify-content: center;
+  gap: 8px;
+  color: var(--on-accent);
+  text-align: center;
+  cursor: pointer;
+  transition: filter 0.2s var(--ease);
+  min-height: 24px;
+  padding: 4px;
+}
+.s17__seg--0 { background: var(--chart-6); }
+.s17__seg--1 { background: var(--chart-2); }
+.s17__seg--2 {
+  background: var(--chart-5);
+  color: var(--ink);
+}
+.s17__seg.is-hover { filter: brightness(1.08) saturate(1.1); }
+.s17__seg-num {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.02em; font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.s17__seg-share {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.1em; opacity: 0.85;
+  white-space: nowrap;
+}
+.s17__legend { display: flex; flex-direction: column; gap: 4px; }
+.s17__legend-row {
+  display: grid; grid-template-columns: 14px 1fr auto;
+  gap: 10px; align-items: center;
+  background: transparent; border: none; text-align: left;
+  padding: 8px 0; cursor: pointer;
+  border-top: 1px solid var(--rule);
+  transition: background 0.2s var(--ease);
+}
+.s17__legend-row:last-child { border-bottom: 1px solid var(--rule); }
+.s17__legend-row.is-hover { background: var(--paper-2); }
+.s17__legend-swatch {
+  width: 12px; height: 12px; border-radius: 2px;
+}
+.s17__legend-swatch--0 { background: var(--chart-6); }
+.s17__legend-swatch--1 { background: var(--chart-2); }
+.s17__legend-swatch--2 { background: var(--chart-5); border: 1px solid var(--rule-strong); }
+.s17__legend-body { display: flex; flex-direction: column; min-width: 0; }
+.s17__legend-label { font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.s17__legend-sub { font-size: 11px; color: var(--ink-3); }
+.s17__legend-share {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+  color: var(--accent); font-variant-numeric: tabular-nums;
+}
+
+.s17__foot, .s18__foot, .s19__foot {
+  padding: 12px clamp(28px, 4vw, 72px);
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: 0.06em; color: var(--ink-3); line-height: 1.5;
+  border-top: 1px solid var(--rule);
+}
+
+/* ============== SLIDE 18 — Gross Loan Portfolio ============== */
+.s18 { width: 100%; height: 100%; display: grid; grid-template-rows: auto 1fr auto; }
+.s18__body {
+  display: grid;
+  grid-template-columns: clamp(220px, 20vw, 280px) minmax(0, 1fr);
+  height: 100%; overflow: hidden;
+}
+.s18__rail {
+  border-right: 1px solid var(--rule);
+  padding: 24px 28px;
+  display: flex; flex-direction: column; gap: 14px;
+  background: var(--paper-2);
+}
+.s18__metric {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 4px;
+  position: relative;
+}
+.s18__metric--accent {
+  background: var(--accent-soft);
+  border-color: color-mix(in oklab, var(--accent), transparent 60%);
+}
+.s18__metric-eye {
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+}
+.s18__info {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--paper), transparent 8%);
+  color: var(--ink-2);
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  transition: border-color 0.16s var(--ease), background 0.16s var(--ease), color 0.16s var(--ease);
+}
+.s18__info:hover,
+.s18__info:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.s18__info::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  width: 220px;
+  transform: translateY(-50%) translateX(-4px);
+  opacity: 0;
+  pointer-events: none;
+  padding: 10px 12px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow-pop);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-align: left;
+  z-index: 5;
+  transition: opacity 0.16s var(--ease), transform 0.16s var(--ease);
+}
+.s18__info:hover::after,
+.s18__info:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+.s18__metric-num {
+  font-size: 32px; font-weight: 700; color: var(--accent);
+  letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.s18__metric-sub { font-size: 11.5px; color: var(--ink-2); }
+
+.s18__legend {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.s18__legend div {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11.5px; color: var(--ink-2);
+}
+.s18__legend-bar { width: 14px; height: 10px; background: var(--chart-4); }
+.s18__legend-line {
+  width: 14px; height: 1.5px; background: var(--chart-6); position: relative;
+}
+.s18__legend-line::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--paper); border: 1.5px solid var(--ink);
+}
+.s18__chart-wrap { padding: 24px 28px; min-width: 0; }
+.s18__chart { width: 100%; height: 100%; max-height: 420px; }
+
+/* ============== SLIDE 19 — Diversified Portfolio ============== */
+.s19 { width: 100%; height: 100%; display: grid; grid-template-rows: auto 1fr auto auto; }
+.s19__body {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 0;
+}
+.s19__panel {
+  padding: 22px clamp(20px, 3vw, 36px);
+  display: flex; flex-direction: column; gap: 14px;
+  border-right: 1px solid var(--rule);
+}
+.s19__panel:last-child { border-right: none; }
+.s19__panel-eye {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+}
+.s19__country-row {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px; align-items: center;
+}
+.s19__donut { width: 180px; height: 180px; flex-shrink: 0; }
+.s19__country-list { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.s19__country {
+  display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 10px;
+  align-items: center;
+  padding: 7px 8px;
+  border-top: 1px solid var(--rule);
+  border-radius: 2px;
+  cursor: default;
+  transition: all 0.2s var(--ease);
+}
+.s19__country:last-child { border-bottom: 1px solid var(--rule); }
+.s19__country.is-hover { background: var(--paper-2); }
+.s19__country-iso {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  color: var(--accent); letter-spacing: 0.04em;
+}
+.s19__country-name {
+  display: flex; flex-direction: column; gap: 1px; min-width: 0;
+}
+.s19__country-name > span {
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.s19__country-name > span:first-child {
+  font-size: 12.5px; font-weight: 600; color: var(--ink);
+}
+.s19__country-rating {
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: 0.04em; color: var(--ink-3);
+}
+.s19__country-share {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 600;
+  color: var(--ink); font-variant-numeric: tabular-nums;
+}
+
+.s19__sector-row {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px; align-items: center;
+}
+.s19__sector-stack { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.s19__sector-total {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+  color: var(--ink); letter-spacing: 0.02em;
+}
+.s19__sector-bar {
+  width: 70px; height: 220px;
+  display: flex; flex-direction: column;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.s19__sector-seg {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--on-accent);
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+}
+.s19__sector-seg--0 { background: var(--chart-6); }
+.s19__sector-seg--1 { background: var(--chart-3); color: var(--on-accent); }
+.s19__sector-seg--2 { background: var(--chart-4); color: var(--ink); }
+.s19__sector-axis {
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: 0.1em; color: var(--ink-3);
+}
+.s19__sector-list { display: flex; flex-direction: column; gap: 4px; }
+.s19__sector-row-item {
+  display: grid; grid-template-columns: 14px 1fr auto auto; gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+}
+.s19__sector-row-item:last-child { border-bottom: 1px solid var(--rule); }
+.s19__sector-swatch { width: 12px; height: 12px; border-radius: 2px; }
+.s19__sector-swatch--0 { background: var(--chart-6); }
+.s19__sector-swatch--1 { background: var(--chart-3); }
+.s19__sector-swatch--2 { background: var(--chart-4); }
+.s19__sector-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+.s19__sector-val {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--ink-3); font-variant-numeric: tabular-nums;
+}
+.s19__sector-share {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 600;
+  color: var(--accent); font-variant-numeric: tabular-nums;
+}
+
+.s19__policies {
+  margin: 0 clamp(28px, 4vw, 72px) 16px;
+  padding: 16px 20px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--paper-2);
+}
+.s19__policies-eye {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+  margin-bottom: 10px;
+}
+.s19__policies-row {
+  display: grid; grid-template-columns: auto auto 1fr; gap: 20px; align-items: center;
+}
+.s19__policy {
+  display: flex; align-items: center; gap: 14px;
+  padding: 8px 16px;
+  border-right: 1px solid var(--rule);
+}
+.s19__policy:last-of-type { border-right: none; }
+.s19__policy-num {
+  font-size: 28px; font-weight: 700; color: var(--accent);
+  letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+}
+.s19__policy-lab { font-size: 13px; font-weight: 600; color: var(--ink); }
+.s19__policy-desc { font-size: 11px; color: var(--ink-3); margin-top: 2px; line-height: 1.35; }
+.s19__policy-note {
+  font-size: 13px; color: var(--ink); font-weight: 500; line-height: 1.5;
+  padding-left: 16px; border-left: 1px solid var(--rule);
+}
+
+/* ============== SLIDE 20 — EEA ============== */
+.s20 { width: 100%; height: 100%; display: grid; grid-template-rows: auto 1fr; }
+.s20__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) clamp(320px, 30vw, 440px);
+  height: 100%; overflow: hidden;
+}
+.s20__diagram {
+  position: relative;
+  padding: 24px;
+  background: var(--paper-2);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.s20__svg { width: 100%; height: 100%; max-width: 560px; max-height: 560px; }
+
+.s20__panel {
+  border-left: 1px solid var(--rule);
+  padding: 28px clamp(24px, 3vw, 36px);
+  display: flex; flex-direction: column; gap: 16px;
+  overflow-y: auto;
+}
+.s20__panel-eye {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+}
+.s20__lede { font-size: 14.5px; line-height: 1.6; color: var(--ink); margin: 0; }
+.s20__lede strong { color: var(--accent); font-weight: 600; }
+.s20__lede em { font-style: italic; color: var(--ink); font-weight: 600; }
+
+.s20__metrics {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+}
+.s20__metric {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.s20__metric-num {
+  font-size: 16px; font-weight: 700; color: var(--accent);
+  letter-spacing: -0.01em; font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.s20__metric-lab {
+  font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
+}
+
+.s20__tabs { display: flex; gap: 6px; }
+.s20__tabs button {
+  flex: 1;
+  padding: 9px 14px;
+  font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--paper); border: 1px solid var(--rule);
+  color: var(--ink-3); cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s var(--ease);
+}
+.s20__tabs button.is-active { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+
+.s20__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.s20__list li {
+  display: grid; grid-template-columns: 28px 1fr; gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 13px; color: var(--ink-2); line-height: 1.5;
+  animation: s14fade 0.4s var(--ease-emph) both;
+}
+.s20__list li:last-child { border-bottom: 1px solid var(--rule); }
+.s20__list-num {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--ink-4); letter-spacing: 0.08em; padding-top: 3px;
+}
